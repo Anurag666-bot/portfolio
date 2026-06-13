@@ -210,6 +210,21 @@ section { padding: 80px 2rem; }
 }
 .gh-link:hover { background: rgba(88,217,249,0.15); }
 
+/* BUG BOUNTY */
+#bugbounty { background: var(--surface); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+.bb-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 2rem; }
+.bb-stat { background: var(--bg); padding: 1.5rem; text-align: center; }
+.bb-num { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--cyan); }
+.bb-lbl { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.bb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 2rem; }
+.bb-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; }
+.bb-card-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--dimmed); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+.bb-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.bb-count { color: var(--white); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+.bb-bar { height: 5px; border-radius: 3px; background: var(--surface); overflow: hidden; margin-bottom: 1.1rem; }
+.bb-bar:last-child { margin-bottom: 0; }
+.bb-fill { height: 100%; background: var(--cyan); border-radius: 3px; }
+
 /* CONTACT */
 #contact { text-align: center; }
 .contact-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 3rem 2rem; max-width: 560px; margin: 0 auto; position: relative; overflow: hidden; }
@@ -260,6 +275,7 @@ footer a:hover { color: var(--cyan); }
     <a href="#experience">experience</a>
     <a href="#skills">skills</a>
     <a href="#projects">projects</a>
+    <a href="#bugbounty">bug bounty</a>
     <a href="#contact">contact</a>
   </div>
   <a href="#contact" class="nav-cta">hire me</a>
@@ -291,7 +307,7 @@ footer a:hover { color: var(--cyan); }
       <div><div class="stat-num">10</div><div class="stat-lbl">GitHub Repos</div></div>
       <div><div class="stat-num">6+</div><div class="stat-lbl">Major Projects</div></div>
       <div><div class="stat-num">3mo</div><div class="stat-lbl">Internship</div></div>
-      <div><div class="stat-num">7+</div><div class="stat-lbl">Security Tools</div></div>
+      <div><div class="stat-num">6</div><div class="stat-lbl">Bugs Found</div></div>
     </div>
   </div>
 </section>
@@ -549,6 +565,38 @@ footer a:hover { color: var(--cyan); }
   </div>
 </section>
 
+<section id="bugbounty">
+  <div class="section-inner">
+    <div class="sec-eyebrow">// bug bounty</div>
+    <h2 class="sec-title">Findings on Bugcrowd</h2>
+    <p class="sec-sub">Real vulnerabilities reported through <a href="https://bugcrowd.com/h/Anurag_1225" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline">Bugcrowd</a> — the same security mindset I bring to building software.</p>
+
+    <div class="bb-stats fade-in">
+      <div class="bb-stat"><div class="bb-num">6</div><div class="bb-lbl">Vulnerabilities Found</div></div>
+      <div class="bb-stat"><div class="bb-num">100%</div><div class="bb-lbl">Accuracy</div></div>
+      <div class="bb-stat"><div class="bb-num">P5</div><div class="bb-lbl">Top Percentile (80th)</div></div>
+      <div class="bb-stat"><div class="bb-num">3</div><div class="bb-lbl">Web App Targets</div></div>
+    </div>
+
+    <div class="bb-grid">
+      <div class="bb-card fade-in">
+        <div class="bb-card-title">By VRT category</div>
+        <div class="bb-row"><span>Server Security Misconfiguration</span><span class="bb-count">4</span></div>
+        <div class="bb-bar"><div class="bb-fill" style="width:100%"></div></div>
+        <div class="bb-row"><span>Sensitive Data Exposure</span><span class="bb-count">2</span></div>
+        <div class="bb-bar"><div class="bb-fill" style="width:50%"></div></div>
+      </div>
+      <div class="bb-card fade-in">
+        <div class="bb-card-title">By target type</div>
+        <div class="bb-row"><span>Web App</span><span class="bb-count">3</span></div>
+        <div class="bb-bar"><div class="bb-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+
+    <a href="https://bugcrowd.com/h/Anurag_1225" target="_blank" rel="noopener" class="gh-link">View Bugcrowd profile →</a>
+  </div>
+</section>
+
 <section id="contact">
   <div class="section-inner">
     <div class="sec-eyebrow">// contact</div>
@@ -566,6 +614,9 @@ footer a:hover { color: var(--cyan); }
         </a>
         <a href="https://github.com/Anurag666-bot" target="_blank" rel="noopener" class="contact-link">
           <span class="icon">💻</span><span>github.com/Anurag666-bot</span><span class="label">github</span>
+        </a>
+        <a href="https://bugcrowd.com/h/Anurag_1225" target="_blank" rel="noopener" class="contact-link">
+          <span class="icon">🐛</span><span>bugcrowd.com/h/Anurag_1225</span><span class="label">bugcrowd</span>
         </a>
         <div class="contact-link" style="cursor:default">
           <span class="icon">📍</span><span>Lalitpur, Nepal</span><span class="label">location</span>
