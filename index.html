@@ -1,361 +1,4797 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Anurag Kumar Das — Full-Stack Developer, Frontend Developer and Security Researcher.">
-<title>Anurag Kumar Das — Developer Portfolio</title>
+
+<meta name="description"
+      content="Anurag Kumar Das — Full-Stack Developer and Security Researcher building secure, scalable web applications.">
+
+<meta name="author" content="Anurag Kumar Das">
+<meta name="theme-color" content="#07090d">
+
+<title>Anurag Kumar Das — Full-Stack Developer & Security Researcher</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-  --bg:#07090d;--surface:#0d1118;--surface2:#111722;--line:#202938;
-  --text:#f4f7fb;--muted:#8b95a7;--cyan:#65e6ff;--green:#63e6be;
-  --purple:#a78bfa;--orange:#ffb86b;--max:1180px;--radius:18px;
+  --bg:#07090d;
+  --surface:#0d1118;
+  --surface2:#111722;
+  --line:#202938;
+  --text:#f4f7fb;
+  --muted:#8b95a7;
+  --cyan:#65e6ff;
+  --green:#63e6be;
+  --purple:#a78bfa;
+  --orange:#ffb86b;
+  --danger:#ff6b7a;
+  --max:1180px;
+  --radius:18px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:
- radial-gradient(circle at 80% 10%,rgba(101,230,255,.10),transparent 28%),
- radial-gradient(circle at 10% 70%,rgba(167,139,250,.07),transparent 30%)}
-body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.28;background-image:
- linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
- linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
- background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-.container{width:min(var(--max),calc(100% - 40px));margin:auto}
-.mono{font-family:"DM Mono",monospace}
-.muted{color:var(--muted)}
-.topbar{position:fixed;top:14px;left:0;right:0;z-index:50}
-.nav{height:62px;width:min(1100px,calc(100% - 28px));margin:auto;padding:0 10px 0 18px;
- display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.09);
- background:rgba(7,9,13,.72);backdrop-filter:blur(20px);border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.28)}
-.brand{display:flex;align-items:center;gap:10px;font:500 12px "DM Mono";letter-spacing:.02em}
-.brand-mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#001016;
- background:linear-gradient(135deg,var(--cyan),var(--green));font-weight:700}
-.navlinks{display:flex;gap:4px}
-.navlinks a{font:400 11px "DM Mono";color:var(--muted);padding:9px 11px;border-radius:9px;transition:.2s}
-.navlinks a:hover{color:var(--text);background:rgba(255,255,255,.06)}
-.nav-cta{font:500 11px "DM Mono";padding:10px 14px;border-radius:10px;color:#001016;
- background:var(--cyan);transition:.2s}
-.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.08)}
-.menu{display:none;background:none;border:0;color:var(--text);font-size:20px;cursor:pointer}
 
-.hero{min-height:100vh;display:grid;place-items:center;padding:140px 0 80px}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
-.status{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(99,230,190,.22);
- background:rgba(99,230,190,.06);border-radius:999px;color:var(--green);font:500 10px "DM Mono";margin-bottom:25px}
-.status i{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 15px var(--green);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.45;transform:scale(.75)}}
-.kicker{font:400 12px "DM Mono";color:var(--cyan);margin-bottom:12px}
-.hero h1{font-size:clamp(48px,7vw,88px);line-height:.96;letter-spacing:-.065em;font-weight:800;max-width:800px}
-.hero h1 span{color:transparent;-webkit-text-stroke:1px var(--cyan)}
-.hero-role{margin:22px 0 20px;font:500 clamp(15px,2vw,20px) "DM Mono";color:var(--muted)}
-.hero-role b{color:var(--cyan);font-weight:500}
-.hero-copy{max-width:650px;color:var(--muted);font-size:15px;line-height:1.9}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border-radius:11px;font:500 11px "DM Mono";border:1px solid var(--line);transition:.2s}
-.btn.primary{background:var(--text);color:#07090d;border-color:var(--text)}
-.btn:hover{transform:translateY(-2px);border-color:var(--cyan)}
-.btn.ghost{background:rgba(255,255,255,.025);color:var(--muted)}
-.hero-meta{display:flex;gap:28px;margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}
-.meta-num{font:500 22px "DM Mono"}.meta-label{font-size:10px;color:var(--muted);margin-top:2px}
 
-.hero-terminal{position:relative}
-.window{background:rgba(13,17,24,.8);border:1px solid rgba(255,255,255,.1);border-radius:20px;
- overflow:hidden;box-shadow:0 35px 90px rgba(0,0,0,.38);transform:rotate(1deg)}
-.window-bar{height:42px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 15px;gap:7px}
-.dot{width:8px;height:8px;border-radius:50%;background:#394150}.window-title{margin:auto;color:#596375;font:10px "DM Mono"}
-.terminal{padding:25px 22px 28px;font:12px/2 "DM Mono";min-height:360px;color:#aab5c5}
-.prompt{color:var(--green)}.cmd{color:var(--text)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.comment{color:#566172}
-.terminal .big{font-size:18px;line-height:1.5;margin:10px 0}
-.scan{margin-top:15px;padding:12px;border:1px solid #1d2937;border-radius:10px;background:#090d13}
-.scan-row{display:flex;justify-content:space-between}.ok{color:var(--green)}
+/* =========================================================
+   RESET
+========================================================= */
 
-section{padding:105px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:38px}
-.eyebrow{font:500 10px "DM Mono";color:var(--cyan);text-transform:uppercase;letter-spacing:.16em;margin-bottom:10px}
-h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.045em;line-height:1.05}
-.section-head p{max-width:430px;color:var(--muted);font-size:13px}
-.about{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:1fr .8fr;gap:60px}
-.about-copy{color:var(--muted);font-size:15px;line-height:1.9}
-.about-copy p+p{margin-top:16px}.about-copy strong{color:var(--text)}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.info{background:var(--surface);padding:18px}.info small{display:block;color:#586477;font:10px "DM Mono";margin-bottom:6px}.info div{font-size:12px;color:#c9d1dc}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-.experience{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.card{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
- border:1px solid var(--line);border-radius:16px;padding:24px;transition:.25s}
-.card:hover{border-color:#344052;transform:translateY(-3px)}
-.exp-top{display:flex;justify-content:space-between;gap:15px}.exp-title{font-weight:700;font-size:15px}.date{font:10px "DM Mono";color:var(--green);white-space:nowrap}
-.company{color:var(--muted);font-size:12px;margin:6px 0 18px}
-.list{list-style:none;color:var(--muted);font-size:12px}.list li{margin:9px 0;padding-left:16px;position:relative}.list li:before{content:"→";position:absolute;left:0;color:var(--cyan)}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:100px;
+}
 
-.skills{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.skill{min-height:145px;background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:18px}
-.skill b{display:block;font:500 10px "DM Mono";color:#687486;text-transform:uppercase;margin-bottom:15px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font:10px "DM Mono";padding:6px 8px;border:1px solid #273140;border-radius:7px;color:#b9c3d0;background:#0a0e14}
-.tag.accent{color:var(--cyan);border-color:rgba(101,230,255,.2);background:rgba(101,230,255,.05)}
+body{
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
 
-.projects-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}
-.filters{display:flex;gap:6px;flex-wrap:wrap}.filter{cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--muted);
- padding:8px 11px;border-radius:9px;font:10px "DM Mono";transition:.2s}.filter.active,.filter:hover{color:var(--cyan);border-color:rgba(101,230,255,.3);background:rgba(101,230,255,.05)}
-.github{font:10px "DM Mono";color:var(--muted)}.github:hover{color:var(--cyan)}
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.project{display:flex;flex-direction:column;min-height:310px}
-.project-top{display:flex;align-items:center;gap:11px;margin-bottom:15px}.project-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:#111a25;border:1px solid #263547;font-size:16px}
-.project h3{font-size:14px}.project small{display:block;color:#586477;font:9px "DM Mono";margin-top:2px}
-.project p{color:var(--muted);font-size:12px;line-height:1.75;margin-bottom:14px}
-.project .list{margin-bottom:16px}.project .tags{margin-top:auto}.project-link{margin-left:auto;color:#596575;font:14px "DM Mono"}.project:hover .project-link{color:var(--cyan)}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-2;
 
-.security{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.security-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}
-.security-main{background:linear-gradient(135deg,rgba(101,230,255,.07),rgba(167,139,250,.05));border:1px solid #243444;border-radius:18px;padding:28px}
-.security-main h3{font-size:23px;margin-bottom:9px}.security-main p{color:var(--muted);font-size:13px;line-height:1.8}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:25px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.stat{background:#090d13;padding:18px}.stat strong{display:block;font:500 25px "DM Mono";color:var(--cyan)}.stat span{font-size:10px;color:var(--muted)}
-.security-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
-.bar-row{margin:20px 0}.bar-label{display:flex;justify-content:space-between;color:var(--muted);font:11px "DM Mono";margin-bottom:7px}.bar{height:5px;background:#18202b;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:9px}
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(101,230,255,.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 70%,
+      rgba(167,139,250,.07),
+      transparent 30%
+    );
+}
 
-.contact{text-align:center}.contact-box{max-width:760px;margin:auto;border:1px solid var(--line);border-radius:24px;padding:55px 25px;background:radial-gradient(circle at 50% 0,rgba(101,230,255,.08),transparent 45%),var(--surface)}
-.contact-box h2{margin-bottom:14px}.contact-box p{max-width:500px;margin:auto;color:var(--muted);font-size:14px}.contact-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:25px}
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.28;
 
-footer{border-top:1px solid var(--line);padding:25px 0;color:#5c6879;font:10px "DM Mono";display:flex;justify-content:space-between;gap:15px}
-footer a:hover{color:var(--cyan)}
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    );
 
-.reveal{opacity:0;transform:translateY(18px);transition:.65s ease}.reveal.show{opacity:1;transform:none}
-.hidden{display:none!important}
+  background-size:48px 48px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 90%
+    );
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:min(
+    var(--max),
+    calc(100% - 40px)
+  );
+
+  margin:auto;
+}
+
+.mono{
+  font-family:"DM Mono",monospace;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.topbar{
+  position:fixed;
+  top:14px;
+  left:0;
+  right:0;
+  z-index:50;
+}
+
+.nav{
+  position:relative;
+
+  height:62px;
+
+  width:min(
+    1100px,
+    calc(100% - 28px)
+  );
+
+  margin:auto;
+
+  padding:
+    0
+    10px
+    0
+    18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  border:
+    1px solid
+    rgba(255,255,255,.09);
+
+  background:
+    rgba(7,9,13,.72);
+
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+
+  border-radius:18px;
+
+  box-shadow:
+    0 14px 40px
+    rgba(0,0,0,.28);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  font:
+    500 12px
+    "DM Mono",
+    monospace;
+
+  letter-spacing:.02em;
+}
+
+.brand-mark{
+  width:30px;
+  height:30px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:9px;
+
+  color:#001016;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--green)
+    );
+
+  font-weight:700;
+}
+
+.navlinks{
+  display:flex;
+  gap:4px;
+}
+
+.navlinks a{
+  font:
+    400 11px
+    "DM Mono",
+    monospace;
+
+  color:var(--muted);
+
+  padding:9px 11px;
+
+  border-radius:9px;
+
+  transition:.2s ease;
+}
+
+.navlinks a:hover,
+.navlinks a:focus-visible{
+  color:var(--text);
+  background:rgba(255,255,255,.06);
+  outline:none;
+}
+
+.nav-cta{
+  font:
+    500 11px
+    "DM Mono",
+    monospace;
+
+  padding:10px 14px;
+
+  border-radius:10px;
+
+  color:#001016;
+  background:var(--cyan);
+
+  transition:.2s ease;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible{
+  transform:translateY(-1px);
+  filter:brightness(1.08);
+  outline:none;
+}
+
+.menu{
+  display:none;
+
+  background:none;
+  border:0;
+
+  color:var(--text);
+
+  font-size:20px;
+
+  padding:5px;
+}
+
+.menu:focus-visible{
+  outline:
+    2px solid
+    var(--cyan);
+
+  outline-offset:4px;
+
+  border-radius:6px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  min-height:100vh;
+
+  display:grid;
+  place-items:center;
+
+  padding:
+    140px
+    0
+    80px;
+}
+
+.hero-grid{
+  display:grid;
+
+  grid-template-columns:
+    1.15fr
+    .85fr;
+
+  gap:70px;
+
+  align-items:center;
+}
+
+.status{
+  display:inline-flex;
+  align-items:center;
+
+  gap:8px;
+
+  padding:7px 11px;
+
+  border:
+    1px solid
+    rgba(99,230,190,.22);
+
+  background:
+    rgba(99,230,190,.06);
+
+  border-radius:999px;
+
+  color:var(--green);
+
+  font:
+    500 10px
+    "DM Mono",
+    monospace;
+
+  margin-bottom:25px;
+}
+
+.status i{
+  width:7px;
+  height:7px;
+
+  background:var(--green);
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 15px
+    var(--green);
+
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+  50%{
+    opacity:.45;
+    transform:scale(.75);
+  }
+
+}
+
+.kicker{
+  font:
+    400 12px
+    "DM Mono",
+    monospace;
+
+  color:var(--cyan);
+
+  margin-bottom:12px;
+}
+
+.hero h1{
+  font-size:
+    clamp(
+      48px,
+      7vw,
+      88px
+    );
+
+  line-height:.96;
+
+  letter-spacing:-.065em;
+
+  font-weight:800;
+
+  max-width:800px;
+}
+
+.hero h1 span{
+  color:transparent;
+
+  -webkit-text-stroke:
+    1px
+    var(--cyan);
+}
+
+.hero-role{
+  margin:
+    22px
+    0
+    20px;
+
+  font:
+    500 clamp(
+      15px,
+      2vw,
+      20px
+    )
+    "DM Mono",
+    monospace;
+
+  color:var(--muted);
+
+  min-height:31px;
+}
+
+.hero-role b{
+  color:var(--cyan);
+  font-weight:500;
+}
+
+.hero-copy{
+  max-width:680px;
+
+  color:var(--muted);
+
+  font-size:15px;
+
+  line-height:1.9;
+}
+
+.hero-actions{
+  display:flex;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  padding:
+    12px
+    17px;
+
+  border-radius:11px;
+
+  font:
+    500 11px
+    "DM Mono",
+    monospace;
+
+  border:
+    1px solid
+    var(--line);
+
+  transition:.2s ease;
+}
+
+.btn.primary{
+  background:var(--text);
+  color:#07090d;
+  border-color:var(--text);
+}
+
+.btn.ghost{
+  background:
+    rgba(255,255,255,.025);
+
+  color:var(--muted);
+}
+
+.btn:hover,
+.btn:focus-visible{
+  transform:translateY(-2px);
+
+  border-color:var(--cyan);
+
+  outline:none;
+}
+
+.btn.primary:hover{
+  background:var(--cyan);
+  color:#001016;
+}
+
+.hero-meta{
+  display:flex;
+
+  gap:28px;
+
+  margin-top:42px;
+
+  padding-top:22px;
+
+  border-top:
+    1px solid
+    var(--line);
+
+  flex-wrap:wrap;
+}
+
+.meta-num{
+  font:
+    500 22px
+    "DM Mono",
+    monospace;
+}
+
+.meta-label{
+  font-size:10px;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.hero-terminal{
+  position:relative;
+}
+
+.window{
+  background:
+    rgba(13,17,24,.8);
+
+  border:
+    1px solid
+    rgba(255,255,255,.1);
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 35px 90px
+    rgba(0,0,0,.38);
+
+  transform:rotate(1deg);
+}
+
+.window-bar{
+  height:42px;
+
+  border-bottom:
+    1px solid
+    var(--line);
+
+  display:flex;
+
+  align-items:center;
+
+  padding:
+    0 15px;
+
+  gap:7px;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:#394150;
+}
+
+.window-title{
+  margin:auto;
+
+  color:#596375;
+
+  font:
+    10px
+    "DM Mono",
+    monospace;
+}
+
+.terminal{
+  padding:
+    25px
+    22px
+    28px;
+
+  font:
+    12px/2
+    "DM Mono",
+    monospace;
+
+  min-height:390px;
+
+  color:#aab5c5;
+}
+
+.prompt{
+  color:var(--green);
+}
+
+.cmd{
+  color:var(--text);
+}
+
+.cyan{
+  color:var(--cyan);
+}
+
+.purple{
+  color:var(--purple);
+}
+
+.comment{
+  color:#566172;
+}
+
+.terminal .big{
+  font-size:18px;
+  line-height:1.5;
+
+  margin:10px 0;
+}
+
+.scan{
+  margin-top:15px;
+
+  padding:12px;
+
+  border:
+    1px solid
+    #1d2937;
+
+  border-radius:10px;
+
+  background:#090d13;
+}
+
+.scan-row{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+}
+
+.ok{
+  color:var(--green);
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+  padding:105px 0;
+}
+
+.section-head{
+  display:flex;
+
+  align-items:end;
+
+  justify-content:space-between;
+
+  gap:25px;
+
+  margin-bottom:38px;
+}
+
+.eyebrow{
+  font:
+    500 10px
+    "DM Mono",
+    monospace;
+
+  color:var(--cyan);
+
+  text-transform:uppercase;
+
+  letter-spacing:.16em;
+
+  margin-bottom:10px;
+}
+
+h2{
+  font-size:
+    clamp(
+      30px,
+      4vw,
+      48px
+    );
+
+  letter-spacing:-.045em;
+
+  line-height:1.05;
+}
+
+.section-head p{
+  max-width:430px;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+  border-top:
+    1px solid
+    var(--line);
+
+  border-bottom:
+    1px solid
+    var(--line);
+}
+
+.about-grid{
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    .8fr;
+
+  gap:60px;
+}
+
+.about-copy{
+  color:var(--muted);
+
+  font-size:15px;
+
+  line-height:1.9;
+}
+
+.about-copy p+p{
+  margin-top:16px;
+}
+
+.about-copy strong{
+  color:var(--text);
+}
+
+.info-grid{
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:1px;
+
+  background:var(--line);
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:16px;
+
+  overflow:hidden;
+}
+
+.info{
+  background:var(--surface);
+
+  padding:18px;
+}
+
+.info small{
+  display:block;
+
+  color:#586477;
+
+  font:
+    10px
+    "DM Mono",
+    monospace;
+
+  margin-bottom:6px;
+}
+
+.info div{
+  font-size:12px;
+  color:#c9d1dc;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:14px;
+}
+
+.card{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.015)
+    );
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:16px;
+
+  padding:24px;
+
+  transition:.25s ease;
+}
+
+.card:hover{
+  border-color:#344052;
+
+  transform:
+    translateY(-3px);
+}
+
+.exp-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:15px;
+}
+
+.exp-title{
+  font-weight:700;
+  font-size:15px;
+}
+
+.date{
+  font:
+    10px
+    "DM Mono",
+    monospace;
+
+  color:var(--green);
+
+  white-space:nowrap;
+}
+
+.company{
+  color:var(--muted);
+
+  font-size:12px;
+
+  margin:
+    6px
+    0
+    18px;
+}
+
+.list{
+  list-style:none;
+
+  color:var(--muted);
+
+  font-size:12px;
+}
+
+.list li{
+  margin:9px 0;
+
+  padding-left:16px;
+
+  position:relative;
+}
+
+.list li:before{
+  content:"→";
+
+  position:absolute;
+
+  left:0;
+
+  color:var(--cyan);
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills{
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:10px;
+}
+
+.skill{
+  min-height:145px;
+
+  background:var(--surface);
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:15px;
+
+  padding:18px;
+}
+
+.skill b{
+  display:block;
+
+  font:
+    500 10px
+    "DM Mono",
+    monospace;
+
+  color:#687486;
+
+  text-transform:uppercase;
+
+  margin-bottom:15px;
+}
+
+.tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:6px;
+}
+
+.tag{
+  font:
+    10px
+    "DM Mono",
+    monospace;
+
+  padding:
+    6px
+    8px;
+
+  border:
+    1px solid
+    #273140;
+
+  border-radius:7px;
+
+  color:#b9c3d0;
+
+  background:#0a0e14;
+}
+
+.tag.accent{
+  color:var(--cyan);
+
+  border-color:
+    rgba(101,230,255,.2);
+
+  background:
+    rgba(101,230,255,.05);
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-toolbar{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:15px;
+
+  margin-bottom:20px;
+}
+
+.filters{
+  display:flex;
+
+  gap:6px;
+
+  flex-wrap:wrap;
+}
+
+.filter{
+  cursor:pointer;
+
+  border:
+    1px solid
+    var(--line);
+
+  background:transparent;
+
+  color:var(--muted);
+
+  padding:
+    8px
+    11px;
+
+  border-radius:9px;
+
+  font:
+    10px
+    "DM Mono",
+    monospace;
+
+  transition:.2s ease;
+}
+
+.filter.active,
+.filter:hover,
+.filter:focus-visible{
+  color:var(--cyan);
+
+  border-color:
+    rgba(101,230,255,.3);
+
+  background:
+    rgba(101,230,255,.05);
+
+  outline:none;
+}
+
+.github{
+  font:
+    10px
+    "DM Mono",
+    monospace;
+
+  color:var(--muted);
+}
+
+.github:hover,
+.github:focus-visible{
+  color:var(--cyan);
+  outline:none;
+}
+
+.projects{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:14px;
+}
+
+.project{
+  display:flex;
+
+  flex-direction:column;
+
+  min-height:340px;
+}
+
+.project-top{
+  display:flex;
+
+  align-items:center;
+
+  gap:11px;
+
+  margin-bottom:15px;
+}
+
+.project-icon{
+  width:36px;
+  height:36px;
+
+  display:grid;
+
+  place-items:center;
+
+  flex-shrink:0;
+
+  border-radius:10px;
+
+  background:#111a25;
+
+  border:
+    1px solid
+    #263547;
+
+  font-size:16px;
+}
+
+.project h3{
+  font-size:14px;
+}
+
+.project small{
+  display:block;
+
+  color:#586477;
+
+  font:
+    9px
+    "DM Mono",
+    monospace;
+
+  margin-top:2px;
+}
+
+.project p{
+  color:var(--muted);
+
+  font-size:12px;
+
+  line-height:1.75;
+
+  margin-bottom:14px;
+}
+
+.project .list{
+  margin-bottom:16px;
+}
+
+.project .tags{
+  margin-top:auto;
+}
+
+.project-link{
+  margin-left:auto;
+
+  color:#596575;
+
+  font:
+    14px
+    "DM Mono",
+    monospace;
+
+  transition:.2s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible{
+  color:var(--cyan);
+  outline:none;
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.security{
+  border-top:
+    1px solid
+    var(--line);
+
+  border-bottom:
+    1px solid
+    var(--line);
+}
+
+.security-grid{
+  display:grid;
+
+  grid-template-columns:
+    .9fr
+    1.1fr;
+
+  gap:14px;
+}
+
+.security-main{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(101,230,255,.07),
+      rgba(167,139,250,.05)
+    );
+
+  border:
+    1px solid
+    #243444;
+
+  border-radius:18px;
+
+  padding:28px;
+}
+
+.security-main h3{
+  font-size:23px;
+
+  margin-bottom:9px;
+}
+
+.security-main p{
+  color:var(--muted);
+
+  font-size:13px;
+
+  line-height:1.8;
+}
+
+.stats{
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:1px;
+
+  background:var(--line);
+
+  margin-top:25px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:12px;
+
+  overflow:hidden;
+}
+
+.stat{
+  background:#090d13;
+
+  padding:18px;
+}
+
+.stat strong{
+  display:block;
+
+  font:
+    500 25px
+    "DM Mono",
+    monospace;
+
+  color:var(--cyan);
+}
+
+.stat span{
+  font-size:10px;
+
+  color:var(--muted);
+}
+
+.security-card{
+  background:var(--surface);
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:18px;
+
+  padding:28px;
+}
+
+.bar-row{
+  margin:20px 0;
+}
+
+.bar-label{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  color:var(--muted);
+
+  font:
+    11px
+    "DM Mono",
+    monospace;
+
+  margin-bottom:7px;
+}
+
+.bar{
+  height:5px;
+
+  background:#18202b;
+
+  border-radius:9px;
+
+  overflow:hidden;
+}
+
+.bar i{
+  display:block;
+
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--cyan),
+      var(--green)
+    );
+
+  border-radius:9px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+  text-align:center;
+}
+
+.contact-box{
+  max-width:760px;
+
+  margin:auto;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:24px;
+
+  padding:
+    55px
+    25px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(101,230,255,.08),
+      transparent 45%
+    ),
+    var(--surface);
+}
+
+.contact-box h2{
+  margin-bottom:14px;
+}
+
+.contact-box p{
+  max-width:550px;
+
+  margin:auto;
+
+  color:var(--muted);
+
+  font-size:14px;
+}
+
+.contact-actions{
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  margin-top:25px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  border-top:
+    1px solid
+    var(--line);
+
+  padding:
+    25px
+    0;
+
+  color:#5c6879;
+
+  font:
+    10px
+    "DM Mono",
+    monospace;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:15px;
+}
+
+footer a:hover,
+footer a:focus-visible{
+  color:var(--cyan);
+  outline:none;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.reveal{
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:.65s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.hidden{
+  display:none!important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .hero-terminal{
+    max-width:750px;
+    width:100%;
+    margin:auto;
+  }
+
+  .skills{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+  .projects{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
 
 @media(max-width:950px){
- .hero-grid,.about-grid,.security-grid{grid-template-columns:1fr}
- .hero-terminal{max-width:700px}.skills{grid-template-columns:repeat(3,1fr)}
- .projects{grid-template-columns:repeat(2,1fr)}.experience{grid-template-columns:1fr}
+
+  .about-grid,
+  .security-grid{
+    grid-template-columns:1fr;
+  }
+
+  .experience{
+    grid-template-columns:1fr;
+  }
+
 }
+
+
 @media(max-width:700px){
- .navlinks,.nav-cta{display:none}.menu{display:block}.nav.open .navlinks{display:flex;position:absolute;top:70px;left:0;right:0;padding:10px;
- background:rgba(7,9,13,.96);border:1px solid var(--line);border-radius:14px;flex-direction:column}
- .hero{padding-top:120px}.hero h1{font-size:clamp(46px,15vw,72px)}.hero-meta{gap:18px;flex-wrap:wrap}
- .section-head{display:block}.section-head p{margin-top:12px}.skills{grid-template-columns:1fr 1fr}.projects{grid-template-columns:1fr}
- .projects-toolbar{display:block}.github{display:block;margin-top:12px}.info-grid{grid-template-columns:1fr}
- footer{flex-direction:column}
+
+  .container{
+    width:min(
+      var(--max),
+      calc(100% - 28px)
+    );
+  }
+
+  .navlinks,
+  .nav-cta{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .nav.open .navlinks{
+
+    display:flex;
+
+    position:absolute;
+
+    top:70px;
+
+    left:0;
+    right:0;
+
+    padding:10px;
+
+    background:
+      rgba(7,9,13,.96);
+
+    border:
+      1px solid
+      var(--line);
+
+    border-radius:14px;
+
+    flex-direction:column;
+
+    box-shadow:
+      0 20px 50px
+      rgba(0,0,0,.4);
+  }
+
+  .nav.open .navlinks a{
+    padding:12px;
+  }
+
+  .hero{
+    padding-top:120px;
+  }
+
+  .hero h1{
+    font-size:
+      clamp(
+        46px,
+        15vw,
+        72px
+      );
+  }
+
+  .hero-copy{
+    font-size:14px;
+  }
+
+  .hero-meta{
+    gap:18px;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head p{
+    margin-top:12px;
+  }
+
+  .skills{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .projects{
+    grid-template-columns:1fr;
+  }
+
+  .projects-toolbar{
+    display:block;
+  }
+
+  .github{
+    display:block;
+    margin-top:12px;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  footer{
+    flex-direction:column;
+    text-align:center;
+  }
+
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+
+@media(max-width:480px){
+
+  .skills{
+    grid-template-columns:1fr;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .hero-actions .btn{
+    width:100%;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .terminal{
+    padding:
+      20px
+      16px;
+
+    font-size:11px;
+  }
+
+  .window{
+    transform:none;
+  }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *:before,
+  *:after{
+    animation:none!important;
+    transition:none!important;
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
 <header class="topbar">
-  <nav class="nav" id="nav">
-    <a class="brand" href="#top"><span class="brand-mark">A</span><span>anurag.dev</span></a>
-    <div class="navlinks">
-      <a href="#about">about</a><a href="#experience">experience</a><a href="#skills">stack</a>
-      <a href="#projects">projects</a><a href="#security">security</a><a href="#contact">contact</a>
+
+  <nav
+    class="nav"
+    id="nav"
+    aria-label="Main navigation"
+  >
+
+    <a
+      class="brand"
+      href="#top"
+      aria-label="Anurag Kumar Das home"
+    >
+
+      <span class="brand-mark">
+        A
+      </span>
+
+      <span>
+        anurag.dev
+      </span>
+
+    </a>
+
+
+    <div
+      class="navlinks"
+      id="navigation-links"
+    >
+
+      <a href="#about">
+        about
+      </a>
+
+      <a href="#experience">
+        experience
+      </a>
+
+      <a href="#skills">
+        stack
+      </a>
+
+      <a href="#projects">
+        projects
+      </a>
+
+      <a href="#security">
+        security
+      </a>
+
+      <a href="#contact">
+        contact
+      </a>
+
     </div>
-    <a class="nav-cta" href="#contact">let's talk ↗</a>
-    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+
+
+    <a
+      class="nav-cta"
+      href="#contact"
+    >
+      let's talk ↗
+    </a>
+
+
+    <button
+      class="menu"
+      id="menu"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="navigation-links"
+    >
+      ☰
+    </button>
+
   </nav>
+
 </header>
 
+
+
 <main id="top">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <section class="hero">
+
   <div class="container hero-grid">
+
+
     <div class="reveal">
-      <div class="status"><i></i> Available for opportunities</div>
-      <div class="kicker mono">// developer · builder · security-minded</div>
-      <h1>Anurag<br><span>Kumar Das</span></h1>
-      <div class="hero-role">&gt; <b id="typed">Full-Stack Developer</b><span class="cyan">_</span></div>
-      <p class="hero-copy">BCA student building modern web applications with a security-first mindset — from PHP/MySQL systems to React, Next.js, MongoDB and Python-powered applications.</p>
+
+      <div class="status">
+
+        <i></i>
+
+        Currently working as a Full-Stack Developer
+
+      </div>
+
+
+      <div class="kicker mono">
+
+        // developer · builder · security-minded
+
+      </div>
+
+
+      <h1>
+
+        Anurag<br>
+
+        <span>
+          Kumar Das
+        </span>
+
+      </h1>
+
+
+      <div class="hero-role">
+
+        &gt;
+
+        <b id="typed">
+          Full-Stack Developer
+        </b>
+
+        <span class="cyan">
+          _
+        </span>
+
+      </div>
+
+
+      <p class="hero-copy">
+
+        Full-stack developer and security researcher
+        building practical software systems with a
+        security-first mindset — from business websites
+        and billing software to modern Django, Next.js
+        and PostgreSQL applications.
+
+      </p>
+
+
       <div class="hero-actions">
-        <a class="btn primary" href="#projects">View selected work ↗</a>
-        <a class="btn ghost" href="https://github.com/Anurag666-bot" target="_blank" rel="noopener">GitHub ↗</a>
+
+        <a
+          class="btn primary"
+          href="#projects"
+        >
+          View selected work ↗
+        </a>
+
+
+        <a
+          class="btn ghost"
+          href="https://github.com/Anurag666-bot"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+
       </div>
+
+
       <div class="hero-meta">
-        <div><div class="meta-num">10</div><div class="meta-label">public repos</div></div>
-        <div><div class="meta-num">6+</div><div class="meta-label">major projects</div></div>
-        <div><div class="meta-num">3mo</div><div class="meta-label">internship</div></div>
-        <div><div class="meta-num">6</div><div class="meta-label">reported bugs</div></div>
+
+
+        <div>
+
+          <div class="meta-num">
+            10
+          </div>
+
+          <div class="meta-label">
+            public repos
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="meta-num">
+            8+
+          </div>
+
+          <div class="meta-label">
+            major builds
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="meta-num">
+            2083/04/05
+          </div>
+
+          <div class="meta-label">
+            BrownleafIT · started
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="meta-num">
+            6
+          </div>
+
+          <div class="meta-label">
+            reported bugs
+          </div>
+
+        </div>
+
+
       </div>
+
     </div>
+
+
+
+    <!-- =====================================================
+         TERMINAL
+    ====================================================== -->
 
     <div class="hero-terminal reveal">
+
       <div class="window">
-        <div class="window-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="window-title">~/portfolio — zsh</span></div>
-        <div class="terminal">
-          <div><span class="prompt">anurag@dev</span>:<span class="cyan">~</span>$ <span class="cmd">whoami</span></div>
-          <div class="big">Anurag Kumar Das</div>
-          <div><span class="prompt">anurag@dev</span>:<span class="cyan">~</span>$ <span class="cmd">cat focus.txt</span></div>
-          <div><span class="purple">full-stack development</span><br><span class="purple">web security & bug bounty</span><br><span class="purple">clean, scalable interfaces</span></div>
-          <div class="scan">
-            <div class="scan-row"><span>react.js</span><span class="ok">✓ ready</span></div>
-            <div class="scan-row"><span>next.js</span><span class="ok">✓ ready</span></div>
-            <div class="scan-row"><span>node / php</span><span class="ok">✓ ready</span></div>
-            <div class="scan-row"><span>security tooling</span><span class="ok">✓ active</span></div>
-          </div>
-          <div style="margin-top:16px"><span class="prompt">anurag@dev</span>:<span class="cyan">~</span>$ <span class="cmd">./build-next</span><span class="cyan">_</span></div>
+
+
+        <div class="window-bar">
+
+          <i class="dot"></i>
+          <i class="dot"></i>
+          <i class="dot"></i>
+
+          <span class="window-title">
+            ~/portfolio — zsh
+          </span>
+
         </div>
+
+
+        <div class="terminal">
+
+
+          <div>
+
+            <span class="prompt">
+              anurag@dev
+            </span>:
+
+            <span class="cyan">
+              ~
+            </span>$
+
+            <span class="cmd">
+              whoami
+            </span>
+
+          </div>
+
+
+          <div class="big">
+
+            Anurag Kumar Das
+
+          </div>
+
+
+          <div>
+
+            <span class="prompt">
+              anurag@dev
+            </span>:
+
+            <span class="cyan">
+              ~
+            </span>$
+
+            <span class="cmd">
+              cat focus.txt
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <span class="purple">
+              full-stack development
+            </span>
+
+            <br>
+
+            <span class="purple">
+              secure application architecture
+            </span>
+
+            <br>
+
+            <span class="purple">
+              web security & bug bounty
+            </span>
+
+            <br>
+
+            <span class="purple">
+              practical business software
+            </span>
+
+          </div>
+
+
+          <div class="scan">
+
+
+            <div class="scan-row">
+
+              <span>
+                BrownleafIT
+              </span>
+
+              <span class="ok">
+                ✓ current
+              </span>
+
+            </div>
+
+
+            <div class="scan-row">
+
+              <span>
+                Django / DRF
+              </span>
+
+              <span class="ok">
+                ✓ active
+              </span>
+
+            </div>
+
+
+            <div class="scan-row">
+
+              <span>
+                Next.js
+              </span>
+
+              <span class="ok">
+                ✓ active
+              </span>
+
+            </div>
+
+
+            <div class="scan-row">
+
+              <span>
+                PostgreSQL
+              </span>
+
+              <span class="ok">
+                ✓ active
+              </span>
+
+            </div>
+
+
+            <div class="scan-row">
+
+              <span>
+                security tooling
+              </span>
+
+              <span class="ok">
+                ✓ active
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+          <div style="margin-top:16px">
+
+            <span class="prompt">
+              anurag@dev
+            </span>:
+
+            <span class="cyan">
+              ~
+            </span>$
+
+            <span class="cmd">
+              ./build-next
+            </span>
+
+            <span class="cyan">
+              _
+            </span>
+
+          </div>
+
+
+        </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<section class="about" id="about">
-<div class="container">
-  <div class="section-head reveal"><div><div class="eyebrow">// about</div><h2>Build. Break. Improve.</h2></div><p>A developer profile focused on practical products, modern stacks and learning security through hands-on work.</p></div>
-  <div class="about-grid">
-    <div class="about-copy reveal">
-      <p>I'm a <strong>BCA student at Patan Multiple Campus</strong>, Lalitpur, Nepal. I build full-stack web applications and explore the security landscape around them.</p>
-      <p>My work includes <strong>PHP/MySQL systems</strong>, modern <strong>React and Next.js applications</strong>, MongoDB-backed projects and <strong>Python AI pipelines</strong>.</p>
-      <p>I completed a <strong>Frontend Developer Internship at Echo Innovators</strong>, working with React.js, Bootstrap, JavaScript, HTML and CSS on live projects and performance improvements.</p>
-      <p>Outside development, I practice bug bounty research, web reconnaissance and application security using tools such as Burp Suite and Nuclei.</p>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+  class="about"
+  id="about"
+>
+
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="eyebrow">
+          // about
+        </div>
+
+        <h2>
+          Build. Break. Improve.
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        A developer profile focused on practical
+        products, modern stacks and learning security
+        through hands-on work.
+
+      </p>
+
     </div>
-    <div class="info-grid reveal">
-      <div class="info"><small>location</small><div>Lalitpur, Nepal</div></div>
-      <div class="info"><small>degree</small><div>BCA · Patan Multiple Campus</div></div>
-      <div class="info"><small>focus</small><div>Full-Stack + Security</div></div>
-      <div class="info"><small>status</small><div style="color:var(--green)">● Open to work</div></div>
-      <div class="info"><small>github</small><div>Anurag666-bot</div></div>
-      <div class="info"><small>email</small><div>anuragkarn56@gmail.com</div></div>
+
+
+
+    <div class="about-grid">
+
+
+      <div class="about-copy reveal">
+
+
+        <p>
+
+          I'm a
+          <strong>
+            BCA student at Patan Multiple Campus
+          </strong>,
+          Lalitpur, Nepal. I build full-stack web
+          applications and explore the security
+          landscape around them.
+
+        </p>
+
+
+        <p>
+
+          I work across
+          <strong>PHP/MySQL</strong>,
+          <strong>React</strong>,
+          <strong>Next.js</strong>,
+          <strong>Python</strong>,
+          <strong>Django REST Framework</strong>
+          and
+          <strong>PostgreSQL</strong>.
+
+        </p>
+
+
+        <p>
+
+          I currently work as a
+          <strong>
+            Full-Stack Developer at BrownleafIT
+          </strong>
+          since
+          <strong>
+            2083/04/05
+          </strong>,
+          where I work on practical web applications
+          and business-focused software.
+
+        </p>
+
+
+        <p>
+
+          I built
+          <strong>
+            BrownleafIT.com from scratch
+          </strong>
+          and also developed
+          <strong>
+            billing software
+          </strong>
+          for practical business use.
+
+        </p>
+
+
+        <p>
+
+          My current major project is
+          <strong>
+            Sweet — Multi-Vendor E-Commerce Platform
+          </strong>,
+          a security-focused commerce system involving
+          authentication, RBAC, catalog, cart, checkout,
+          inventory, payments, orders, shipment management
+          and audit/security controls.
+
+        </p>
+
+
+        <p>
+
+          Outside development, I practice bug bounty
+          research, web reconnaissance and application
+          security using tools such as Burp Suite, Nuclei,
+          FFUF, Subfinder, Amass, HTTPX and Katana.
+
+        </p>
+
+
+      </div>
+
+
+
+      <div class="info-grid reveal">
+
+
+        <div class="info">
+
+          <small>
+            location
+          </small>
+
+          <div>
+            Lalitpur, Nepal
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <small>
+            degree
+          </small>
+
+          <div>
+            BCA · Patan Multiple Campus
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <small>
+            current role
+          </small>
+
+          <div>
+            Full-Stack Developer
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <small>
+            company
+          </small>
+
+          <div style="color:var(--green)">
+            ● BrownleafIT
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <small>
+            since
+          </small>
+
+          <div>
+            2083/04/05
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <small>
+            focus
+          </small>
+
+          <div>
+            Full-Stack + Security
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <small>
+            github
+          </small>
+
+          <div>
+            Anurag666-bot
+          </div>
+
+        </div>
+
+
+        <div class="info">
+
+          <small>
+            email
+          </small>
+
+          <div>
+            anuragkarn56@gmail.com
+          </div>
+
+        </div>
+
+
+      </div>
+
     </div>
+
   </div>
-</div>
+
 </section>
+
+
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
 
 <section id="experience">
-<div class="container">
-  <div class="section-head reveal"><div><div class="eyebrow">// experience</div><h2>Where I've shipped.</h2></div><p>Hands-on frontend development experience from a three-month internship engagement.</p></div>
-  <div class="experience">
-    <article class="card reveal">
-      <div class="exp-top"><div class="exp-title">Frontend Developer Intern</div><div class="date">AUG — NOV 2025</div></div>
-      <div class="company">Echo Innovators Pvt. Ltd. · Koteshwor, Kathmandu</div>
-      <ul class="list"><li>Built and optimized UI components with HTML, CSS, JavaScript, Bootstrap and React.js.</li><li>Contributed to UI development and performance optimization across client-facing applications.</li><li>Worked with cross-team communication and consistent delivery throughout the engagement.</li></ul>
-    </article>
-    <article class="card reveal">
-      <div class="exp-title">Current Direction</div>
-      <div class="company">Full-stack development + application security</div>
-      <ul class="list"><li>Building projects across PHP/MySQL, React, Next.js, Node.js, MongoDB and Python.</li><li>Practicing web security, reconnaissance and vulnerability research.</li><li>Turning development experience into stronger secure-coding habits.</li></ul>
-    </article>
+
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="eyebrow">
+          // experience
+        </div>
+
+        <h2>
+          Where I've shipped.
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        From professional full-stack development
+        to business software, e-commerce engineering
+        and security-focused application development.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="experience">
+
+
+      <!-- CURRENT BROWNLEAFIT -->
+
+      <article class="card reveal">
+
+
+        <div class="exp-top">
+
+          <div class="exp-title">
+            Full-Stack Developer
+          </div>
+
+          <div class="date">
+            SINCE 2083/04/05
+          </div>
+
+        </div>
+
+
+        <div class="company">
+
+          BrownleafIT · Current
+
+        </div>
+
+
+        <ul class="list">
+
+
+          <li>
+
+            Working as a Full-Stack Developer,
+            building and maintaining practical
+            business-focused web applications.
+
+          </li>
+
+
+          <li>
+
+            Developed BrownleafIT.com from scratch,
+            working across frontend, backend,
+            database and application functionality.
+
+          </li>
+
+
+          <li>
+
+            Developing business software and
+            implementing real-world application
+            workflows based on requirements.
+
+          </li>
+
+
+          <li>
+
+            Working across modern web technologies
+            while focusing on maintainable, responsive
+            and secure application design.
+
+          </li>
+
+
+          <li>
+
+            Applying authentication, authorization,
+            secure coding and application-security
+            practices during development.
+
+          </li>
+
+
+        </ul>
+
+      </article>
+
+
+
+      <!-- SWEET -->
+
+      <article class="card reveal">
+
+
+        <div class="exp-top">
+
+          <div class="exp-title">
+            Full-Stack Developer
+          </div>
+
+          <div class="date">
+            CURRENT
+          </div>
+
+        </div>
+
+
+        <div class="company">
+
+          Sweet — Multi-Vendor E-Commerce Platform
+
+        </div>
+
+
+        <ul class="list">
+
+
+          <li>
+
+            Building a modular monolith e-commerce
+            platform using Django REST Framework,
+            Next.js and PostgreSQL.
+
+          </li>
+
+
+          <li>
+
+            Implementing RBAC, secure authentication,
+            transactional checkout and inventory controls.
+
+          </li>
+
+
+          <li>
+
+            Working on payments, orders, shipment
+            management, audit logging and security controls.
+
+          </li>
+
+
+          <li>
+
+            Extending the architecture toward a secure
+            multi-vendor marketplace.
+
+          </li>
+
+
+        </ul>
+
+      </article>
+
+
+
+      <!-- PREVIOUS INTERNSHIP -->
+
+      <article class="card reveal">
+
+
+        <div class="exp-top">
+
+          <div class="exp-title">
+            Frontend Developer Intern
+          </div>
+
+          <div class="date">
+            AUG — NOV 2025
+          </div>
+
+        </div>
+
+
+        <div class="company">
+
+          Echo Innovators Pvt. Ltd.
+          · Koteshwor, Kathmandu
+
+        </div>
+
+
+        <ul class="list">
+
+
+          <li>
+
+            Built and optimized UI components with
+            HTML, CSS, JavaScript, Bootstrap and React.js.
+
+          </li>
+
+
+          <li>
+
+            Contributed to UI development and performance
+            optimization across client-facing applications.
+
+          </li>
+
+
+          <li>
+
+            Worked with cross-team communication and
+            consistent delivery throughout the engagement.
+
+          </li>
+
+
+        </ul>
+
+      </article>
+
+
+
+      <!-- SECURITY -->
+
+      <article class="card reveal">
+
+
+        <div class="exp-top">
+
+          <div class="exp-title">
+            Security Research
+          </div>
+
+          <div class="date">
+            ONGOING
+          </div>
+
+        </div>
+
+
+        <div class="company">
+
+          Bug Bounty · Web Application Security
+
+        </div>
+
+
+        <ul class="list">
+
+
+          <li>
+
+            Practice web reconnaissance and vulnerability
+            discovery against authorized targets.
+
+          </li>
+
+
+          <li>
+
+            Use Burp Suite, Nuclei, FFUF, Subfinder,
+            Amass, HTTPX and Katana.
+
+          </li>
+
+
+          <li>
+
+            Apply OWASP concepts and security testing
+            knowledge to development projects.
+
+          </li>
+
+
+        </ul>
+
+      </article>
+
+
+    </div>
+
   </div>
-</div>
+
 </section>
+
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
 
 <section id="skills">
-<div class="container">
-  <div class="section-head reveal"><div><div class="eyebrow">// stack</div><h2>Tools I work with.</h2></div><p>Grouped by the way I actually use them while building and testing applications.</p></div>
-  <div class="skills reveal">
-    <div class="skill"><b>Languages</b><div class="tags"><span class="tag">Python</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">JavaScript</span></div></div>
-    <div class="skill"><b>Frontend</b><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Bootstrap</span><span class="tag">React</span><span class="tag accent">Next.js</span><span class="tag accent">Tailwind</span></div></div>
-    <div class="skill"><b>Backend / DB</b><div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag accent">Node.js</span><span class="tag accent">MongoDB</span><span class="tag">Linux</span></div></div>
-    <div class="skill"><b>Concepts</b><div class="tags"><span class="tag">OOP</span><span class="tag">DSA</span><span class="tag accent">REST APIs</span><span class="tag accent">OWASP Top 10</span><span class="tag accent">API Security</span></div></div>
-    <div class="skill"><b>Security</b><div class="tags"><span class="tag accent">Burp Suite</span><span class="tag accent">Nuclei</span><span class="tag accent">FFUF</span><span class="tag accent">Subfinder</span><span class="tag accent">Amass</span><span class="tag accent">HTTPX</span><span class="tag accent">Katana</span></div></div>
+
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="eyebrow">
+          // stack
+        </div>
+
+        <h2>
+          Tools I work with.
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        Grouped by the way I use them while building,
+        securing and testing applications.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="skills reveal">
+
+
+      <div class="skill">
+
+        <b>
+          Languages
+        </b>
+
+        <div class="tags">
+
+          <span class="tag">
+            Python
+          </span>
+
+          <span class="tag">
+            PHP
+          </span>
+
+          <span class="tag">
+            Java
+          </span>
+
+          <span class="tag">
+            C
+          </span>
+
+          <span class="tag">
+            JavaScript
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <b>
+          Frontend
+        </b>
+
+        <div class="tags">
+
+          <span class="tag">
+            HTML5
+          </span>
+
+          <span class="tag">
+            CSS3
+          </span>
+
+          <span class="tag">
+            Bootstrap
+          </span>
+
+          <span class="tag accent">
+            React
+          </span>
+
+          <span class="tag accent">
+            Next.js
+          </span>
+
+          <span class="tag accent">
+            Tailwind
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <b>
+          Backend / DB
+        </b>
+
+        <div class="tags">
+
+          <span class="tag">
+            PHP
+          </span>
+
+          <span class="tag">
+            MySQL
+          </span>
+
+          <span class="tag accent">
+            Node.js
+          </span>
+
+          <span class="tag accent">
+            MongoDB
+          </span>
+
+          <span class="tag accent">
+            Django
+          </span>
+
+          <span class="tag accent">
+            DRF
+          </span>
+
+          <span class="tag accent">
+            PostgreSQL
+          </span>
+
+          <span class="tag">
+            Linux
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <b>
+          Architecture
+        </b>
+
+        <div class="tags">
+
+          <span class="tag">
+            OOP
+          </span>
+
+          <span class="tag">
+            DSA
+          </span>
+
+          <span class="tag accent">
+            REST APIs
+          </span>
+
+          <span class="tag accent">
+            RBAC
+          </span>
+
+          <span class="tag accent">
+            JWT
+          </span>
+
+          <span class="tag accent">
+            Transactions
+          </span>
+
+          <span class="tag accent">
+            Idempotency
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <b>
+          Security
+        </b>
+
+        <div class="tags">
+
+          <span class="tag accent">
+            Burp Suite
+          </span>
+
+          <span class="tag accent">
+            Nuclei
+          </span>
+
+          <span class="tag accent">
+            FFUF
+          </span>
+
+          <span class="tag accent">
+            Subfinder
+          </span>
+
+          <span class="tag accent">
+            Amass
+          </span>
+
+          <span class="tag accent">
+            HTTPX
+          </span>
+
+          <span class="tag accent">
+            Katana
+          </span>
+
+          <span class="tag accent">
+            OWASP
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
   </div>
-</div>
+
 </section>
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
 
 <section id="projects">
-<div class="container">
-  <div class="section-head reveal"><div><div class="eyebrow">// selected work</div><h2>Things I've built.</h2></div><p>Selected projects from PHP/MySQL, JavaScript/Next.js and Python work.</p></div>
-  <div class="projects-toolbar">
-    <div class="filters">
-      <button class="filter active" data-filter="all">ALL</button>
-      <button class="filter" data-filter="php">PHP / MYSQL</button>
-      <button class="filter" data-filter="js">JS / NEXT</button>
-      <button class="filter" data-filter="python">PYTHON</button>
-    </div>
-    <a class="github" href="https://github.com/Anurag666-bot?tab=repositories" target="_blank" rel="noopener">github.com/Anurag666-bot ↗</a>
-  </div>
-  <div class="projects">
-    <article class="project card reveal" data-cat="js"><div class="project-top"><div class="project-icon">🛒</div><div><h3>Ecommerce Platform</h3><small>JavaScript · Next.js</small></div><a class="project-link" href="https://github.com/Anurag666-bot/ecommerce-platform" target="_blank">↗</a></div><p>Full-stack ecommerce application with authentication, product management, cart, orders and admin features.</p><ul class="list"><li>Product search, cart and checkout flow</li><li>Admin product management and reviews</li><li>JWT/NextAuth with MongoDB/Mongoose</li></ul><div class="tags"><span class="tag accent">Next.js</span><span class="tag accent">React</span><span class="tag">Tailwind</span><span class="tag">MongoDB</span></div></article>
-    <article class="project card reveal" data-cat="php"><div class="project-top"><div class="project-icon">🗳️</div><div><h3>Online Voting System</h3><small>PHP · MySQL</small></div><a class="project-link" href="https://github.com/Anurag666-bot/online-voting-system" target="_blank">↗</a></div><p>Web-based voting platform with voter authentication, election administration and results workflows.</p><ul class="list"><li>Candidate, position and election management</li><li>Vote counting and results</li><li>Admin dashboard</li></ul><div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span><span class="tag">jQuery</span></div></article>
-    <article class="project card reveal" data-cat="python"><div class="project-top"><div class="project-icon">🤖</div><div><h3>AI Avatar Content Pipeline</h3><small>Python · FastAPI</small></div><a class="project-link" href="https://github.com/Anurag666-bot/content-creation-system" target="_blank">↗</a></div><p>AI content pipeline converting text into animated talking-avatar content using TTS and generative tooling.</p><ul class="list"><li>Text-to-speech with gTTS</li><li>Facial animation and lip-sync</li><li>FastAPI REST API with progress updates</li></ul><div class="tags"><span class="tag accent">Python</span><span class="tag accent">FastAPI</span><span class="tag">Stable Diffusion</span></div></article>
-    <article class="project card reveal" data-cat="php"><div class="project-top"><div class="project-icon">🚂</div><div><h3>Railway Management System</h3><small>PHP · MySQL</small></div><a class="project-link" href="https://github.com/Anurag666-bot/railway-ticket-booking-system" target="_blank">↗</a></div><p>Railway booking and management platform with CRUD workflows and relational database design.</p><ul class="list"><li>Train, schedule and passenger management</li><li>Normalized MySQL architecture</li><li>Admin CRUD workflows</li></ul><div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span></div></article>
-    <article class="project card reveal" data-cat="php"><div class="project-top"><div class="project-icon">🍔</div><div><h3>Online Food Ordering</h3><small>PHP · MySQL</small></div><a class="project-link" href="https://github.com/Anurag666-bot/online-food-ordering-system" target="_blank">↗</a></div><p>Food ordering and delivery platform with restaurant/menu management and order tracking workflows.</p><ul class="list"><li>Restaurant and menu management</li><li>Order tracking workflow</li><li>Customer and admin interfaces</li></ul><div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span></div></article>
-    <article class="project card reveal" data-cat="js"><div class="project-top"><div class="project-icon">🎓</div><div><h3>College Management System</h3><small>HTML · CSS · JS</small></div><a class="project-link" href="https://github.com/Anurag666-bot/college-management-system" target="_blank">↗</a></div><p>Web-based system for student records, courses and administrative workflows.</p><ul class="list"><li>Student and course records</li><li>Admin and staff interfaces</li><li>Responsive frontend</li></ul><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div></article>
-  </div>
-</div>
-</section>
 
-<section class="security" id="security">
-<div class="container">
-  <div class="section-head reveal"><div><div class="eyebrow">// security</div><h2>Think like a builder. Test like an attacker.</h2></div><p>Bug bounty and application-security work that complements my development background.</p></div>
-  <div class="security-grid">
-    <div class="security-main reveal">
-      <h3>Bug bounty practice</h3>
-      <p>Reported vulnerabilities through Bugcrowd and developed hands-on experience with web reconnaissance, testing and security tooling.</p>
-      <div class="stats">
-        <div class="stat"><strong>6</strong><span>vulnerabilities found</span></div>
-        <div class="stat"><strong>3</strong><span>web app targets</span></div>
-        <div class="stat"><strong>4</strong><span>server misconfigurations</span></div>
-        <div class="stat"><strong>2</strong><span>sensitive data findings</span></div>
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="eyebrow">
+          // selected work
+        </div>
+
+        <h2>
+          Things I've built.
+        </h2>
+
       </div>
-      <a class="btn ghost" style="margin-top:20px" href="https://bugcrowd.com/h/Anurag_1225" target="_blank" rel="noopener">View Bugcrowd profile ↗</a>
+
+
+      <p>
+
+        Selected work across professional development,
+        business software, full-stack platforms,
+        PHP/MySQL, Next.js, Django and Python.
+
+      </p>
+
     </div>
-    <div class="security-card reveal">
-      <div class="eyebrow">tooling</div>
-      <div class="bar-row"><div class="bar-label"><span>Burp Suite</span><span>web testing</span></div><div class="bar"><i style="width:92%"></i></div></div>
-      <div class="bar-row"><div class="bar-label"><span>Nuclei</span><span>automation</span></div><div class="bar"><i style="width:86%"></i></div></div>
-      <div class="bar-row"><div class="bar-label"><span>Recon stack</span><span>discovery</span></div><div class="bar"><i style="width:84%"></i></div></div>
-      <div class="bar-row"><div class="bar-label"><span>Secure coding</span><span>OWASP mindset</span></div><div class="bar"><i style="width:80%"></i></div></div>
+
+
+
+    <div class="projects-toolbar">
+
+
+      <div class="filters">
+
+
+        <button
+          class="filter active"
+          data-filter="all"
+          type="button"
+          aria-pressed="true"
+        >
+          ALL
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="fullstack"
+          type="button"
+          aria-pressed="false"
+        >
+          FULL-STACK
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="php"
+          type="button"
+          aria-pressed="false"
+        >
+          PHP / MYSQL
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="js"
+          type="button"
+          aria-pressed="false"
+        >
+          JS / NEXT
+        </button>
+
+
+        <button
+          class="filter"
+          data-filter="python"
+          type="button"
+          aria-pressed="false"
+        >
+          PYTHON
+        </button>
+
+
+      </div>
+
+
+      <a
+        class="github"
+        href="https://github.com/Anurag666-bot?tab=repositories"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        github.com/Anurag666-bot ↗
+      </a>
+
+
     </div>
+
+
+
+    <div class="projects">
+
+
+      <!-- ===================================================
+           BROWNLEAFIT
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="fullstack"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🌐
+          </div>
+
+
+          <div>
+
+            <h3>
+              BrownleafIT.com
+            </h3>
+
+            <small>
+              Current Work · Full-Stack Development
+            </small>
+
+          </div>
+
+
+          <a
+            class="project-link"
+            href="https://brownleafit.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open BrownleafIT website"
+          >
+            ↗
+          </a>
+
+
+        </div>
+
+
+        <p>
+
+          Current full-stack development work involving
+          BrownleafIT.com and practical business-focused
+          software and web applications.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Full-Stack Developer since 2083/04/05
+          </li>
+
+
+          <li>
+            Built BrownleafIT.com from scratch
+          </li>
+
+
+          <li>
+            Developing practical business software
+          </li>
+
+
+          <li>
+            Working across frontend, backend and database layers
+          </li>
+
+
+          <li>
+            Applying responsive and secure development practices
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag accent">
+            Full-Stack
+          </span>
+
+
+          <span class="tag accent">
+            Web Development
+          </span>
+
+
+          <span class="tag">
+            Business Software
+          </span>
+
+
+          <span class="tag">
+            Security
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           SWEET
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="fullstack"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🛒
+          </div>
+
+
+          <div>
+
+            <h3>
+              Sweet — Multi-Vendor E-Commerce
+            </h3>
+
+            <small>
+              Django REST Framework · Next.js · PostgreSQL
+            </small>
+
+          </div>
+
+
+        </div>
+
+
+        <p>
+
+          Security-focused e-commerce platform designed
+          as a modular monolith with a strong foundation
+          for multi-vendor marketplace capabilities.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            RBAC and secure authentication
+          </li>
+
+
+          <li>
+            Transaction-safe checkout and inventory reservations
+          </li>
+
+
+          <li>
+            Payment security and idempotency controls
+          </li>
+
+
+          <li>
+            Order lifecycle and shipment management
+          </li>
+
+
+          <li>
+            Secure uploads, rate limiting and audit logging
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag accent">
+            Django
+          </span>
+
+          <span class="tag accent">
+            DRF
+          </span>
+
+          <span class="tag accent">
+            Next.js
+          </span>
+
+          <span class="tag accent">
+            PostgreSQL
+          </span>
+
+          <span class="tag">
+            RBAC
+          </span>
+
+          <span class="tag">
+            Security
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           BILLING
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="fullstack"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🧾
+          </div>
+
+
+          <div>
+
+            <h3>
+              Billing Software
+            </h3>
+
+            <small>
+              Business Software · Billing
+            </small>
+
+          </div>
+
+
+        </div>
+
+
+        <p>
+
+          Business-oriented billing software developed
+          to support practical billing workflows and
+          day-to-day business operations.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Developed core billing workflows
+          </li>
+
+
+          <li>
+            Built around practical business requirements
+          </li>
+
+
+          <li>
+            Focused on usable and maintainable application design
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag accent">
+            Software
+          </span>
+
+          <span class="tag">
+            Billing
+          </span>
+
+          <span class="tag">
+            Business
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           ECOMMERCE
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="js"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🛍️
+          </div>
+
+
+          <div>
+
+            <h3>
+              Ecommerce Platform
+            </h3>
+
+            <small>
+              JavaScript · Next.js
+            </small>
+
+          </div>
+
+
+          <a
+            class="project-link"
+            href="https://github.com/Anurag666-bot/ecommerce-platform"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open ecommerce platform repository"
+          >
+            ↗
+          </a>
+
+
+        </div>
+
+
+        <p>
+
+          Full-stack ecommerce application with
+          authentication, product management, cart,
+          orders and admin features.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Product search, cart and checkout flow
+          </li>
+
+
+          <li>
+            Admin product management and reviews
+          </li>
+
+
+          <li>
+            JWT/NextAuth with MongoDB/Mongoose
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag accent">
+            Next.js
+          </span>
+
+          <span class="tag accent">
+            React
+          </span>
+
+          <span class="tag">
+            Tailwind
+          </span>
+
+          <span class="tag">
+            MongoDB
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           VOTING
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="php"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🗳️
+          </div>
+
+
+          <div>
+
+            <h3>
+              Online Voting System
+            </h3>
+
+            <small>
+              PHP · MySQL
+            </small>
+
+          </div>
+
+
+          <a
+            class="project-link"
+            href="https://github.com/Anurag666-bot/online-voting-system"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open online voting repository"
+          >
+            ↗
+          </a>
+
+
+        </div>
+
+
+        <p>
+
+          Web-based voting platform with voter
+          authentication, election administration
+          and results workflows.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Candidate, position and election management
+          </li>
+
+
+          <li>
+            Vote counting and results
+          </li>
+
+
+          <li>
+            Admin dashboard
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag">
+            PHP
+          </span>
+
+          <span class="tag">
+            MySQL
+          </span>
+
+          <span class="tag">
+            Bootstrap
+          </span>
+
+          <span class="tag">
+            jQuery
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           AI
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="python"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🤖
+          </div>
+
+
+          <div>
+
+            <h3>
+              AI Avatar Content Pipeline
+            </h3>
+
+            <small>
+              Python · FastAPI
+            </small>
+
+          </div>
+
+
+          <a
+            class="project-link"
+            href="https://github.com/Anurag666-bot/content-creation-system"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open AI content pipeline repository"
+          >
+            ↗
+          </a>
+
+
+        </div>
+
+
+        <p>
+
+          AI content pipeline converting text into
+          animated talking-avatar content using
+          TTS and generative tooling.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Text-to-speech with gTTS
+          </li>
+
+
+          <li>
+            Facial animation and lip-sync
+          </li>
+
+
+          <li>
+            FastAPI REST API with progress updates
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag accent">
+            Python
+          </span>
+
+          <span class="tag accent">
+            FastAPI
+          </span>
+
+          <span class="tag">
+            Stable Diffusion
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           RAILWAY
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="php"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🚂
+          </div>
+
+
+          <div>
+
+            <h3>
+              Railway Management System
+            </h3>
+
+            <small>
+              PHP · MySQL
+            </small>
+
+          </div>
+
+
+          <a
+            class="project-link"
+            href="https://github.com/Anurag666-bot/railway-ticket-booking-system"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open railway management repository"
+          >
+            ↗
+          </a>
+
+
+        </div>
+
+
+        <p>
+
+          Railway booking and management platform
+          with CRUD workflows and relational
+          database design.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Train, schedule and passenger management
+          </li>
+
+
+          <li>
+            Normalized MySQL architecture
+          </li>
+
+
+          <li>
+            Admin CRUD workflows
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag">
+            PHP
+          </span>
+
+          <span class="tag">
+            MySQL
+          </span>
+
+          <span class="tag">
+            JavaScript
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           FOOD
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="php"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🍔
+          </div>
+
+
+          <div>
+
+            <h3>
+              Online Food Ordering
+            </h3>
+
+            <small>
+              PHP · MySQL
+            </small>
+
+          </div>
+
+
+          <a
+            class="project-link"
+            href="https://github.com/Anurag666-bot/online-food-ordering-system"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open food ordering repository"
+          >
+            ↗
+          </a>
+
+
+        </div>
+
+
+        <p>
+
+          Food ordering and delivery platform with
+          restaurant/menu management and order
+          tracking workflows.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Restaurant and menu management
+          </li>
+
+
+          <li>
+            Order tracking workflow
+          </li>
+
+
+          <li>
+            Customer and admin interfaces
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag">
+            PHP
+          </span>
+
+          <span class="tag">
+            MySQL
+          </span>
+
+          <span class="tag">
+            JavaScript
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- ===================================================
+           COLLEGE
+      ==================================================== -->
+
+      <article
+        class="project card reveal"
+        data-cat="js"
+      >
+
+
+        <div class="project-top">
+
+
+          <div class="project-icon">
+            🎓
+          </div>
+
+
+          <div>
+
+            <h3>
+              College Management System
+            </h3>
+
+            <small>
+              HTML · CSS · JS
+            </small>
+
+          </div>
+
+
+          <a
+            class="project-link"
+            href="https://github.com/Anurag666-bot/college-management-system"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open college management repository"
+          >
+            ↗
+          </a>
+
+
+        </div>
+
+
+        <p>
+
+          Web-based system for student records,
+          courses and administrative workflows.
+
+        </p>
+
+
+        <ul class="list">
+
+
+          <li>
+            Student and course records
+          </li>
+
+
+          <li>
+            Admin and staff interfaces
+          </li>
+
+
+          <li>
+            Responsive frontend
+          </li>
+
+
+        </ul>
+
+
+        <div class="tags">
+
+
+          <span class="tag">
+            HTML5
+          </span>
+
+          <span class="tag">
+            CSS3
+          </span>
+
+          <span class="tag">
+            JavaScript
+          </span>
+
+
+        </div>
+
+
+      </article>
+
+
+    </div>
+
   </div>
-</div>
+
 </section>
 
-<section class="contact" id="contact">
-<div class="container">
-  <div class="contact-box reveal">
-    <div class="eyebrow">// contact</div>
-    <h2>Have something worth building?</h2>
-    <p>Open to internships, freelance work and security-focused collaborations. Let's build something useful.</p>
-    <div class="contact-actions">
-      <a class="btn primary" href="mailto:anuragkarn56@gmail.com">anuragkarn56@gmail.com ↗</a>
-      <a class="btn ghost" href="https://github.com/Anurag666-bot" target="_blank">GitHub ↗</a>
-      <a class="btn ghost" href="https://bugcrowd.com/h/Anurag_1225" target="_blank">Bugcrowd ↗</a>
+
+
+<!-- =========================================================
+     SECURITY
+========================================================= -->
+
+<section
+  class="security"
+  id="security"
+>
+
+  <div class="container">
+
+
+    <div class="section-head reveal">
+
+
+      <div>
+
+        <div class="eyebrow">
+          // security
+        </div>
+
+        <h2>
+
+          Think like a builder.
+          Test like an attacker.
+
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        Bug bounty and application-security work that
+        complements my development background.
+
+      </p>
+
+
     </div>
+
+
+
+    <div class="security-grid">
+
+
+      <div class="security-main reveal">
+
+
+        <h3>
+          Bug bounty practice
+        </h3>
+
+
+        <p>
+
+          Reported vulnerabilities through Bugcrowd
+          and developed hands-on experience with web
+          reconnaissance, testing and security tooling.
+
+        </p>
+
+
+        <div class="stats">
+
+
+          <div class="stat">
+
+            <strong>
+              6
+            </strong>
+
+            <span>
+              vulnerabilities found
+            </span>
+
+          </div>
+
+
+          <div class="stat">
+
+            <strong>
+              3
+            </strong>
+
+            <span>
+              web app targets
+            </span>
+
+          </div>
+
+
+          <div class="stat">
+
+            <strong>
+              4
+            </strong>
+
+            <span>
+              server misconfigurations
+            </span>
+
+          </div>
+
+
+          <div class="stat">
+
+            <strong>
+              2
+            </strong>
+
+            <span>
+              sensitive data findings
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <a
+          class="btn ghost"
+          style="margin-top:20px"
+          href="https://bugcrowd.com/h/Anurag_1225"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Bugcrowd profile ↗
+        </a>
+
+
+      </div>
+
+
+
+      <div class="security-card reveal">
+
+
+        <div class="eyebrow">
+          tooling
+        </div>
+
+
+        <div class="bar-row">
+
+
+          <div class="bar-label">
+
+            <span>
+              Burp Suite
+            </span>
+
+            <span>
+              web testing
+            </span>
+
+          </div>
+
+
+          <div class="bar">
+
+            <i style="width:92%"></i>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="bar-row">
+
+
+          <div class="bar-label">
+
+            <span>
+              Nuclei
+            </span>
+
+            <span>
+              automation
+            </span>
+
+          </div>
+
+
+          <div class="bar">
+
+            <i style="width:86%"></i>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="bar-row">
+
+
+          <div class="bar-label">
+
+            <span>
+              Recon stack
+            </span>
+
+            <span>
+              discovery
+            </span>
+
+          </div>
+
+
+          <div class="bar">
+
+            <i style="width:84%"></i>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="bar-row">
+
+
+          <div class="bar-label">
+
+            <span>
+              Secure coding
+            </span>
+
+            <span>
+              OWASP mindset
+            </span>
+
+          </div>
+
+
+          <div class="bar">
+
+            <i style="width:80%"></i>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
   </div>
-</div>
+
 </section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+  class="contact"
+  id="contact"
+>
+
+  <div class="container">
+
+
+    <div class="contact-box reveal">
+
+
+      <div class="eyebrow">
+        // contact
+      </div>
+
+
+      <h2>
+        Have something worth building?
+      </h2>
+
+
+      <p>
+
+        I'm currently working as a Full-Stack Developer
+        at BrownleafIT and am open to selected development,
+        freelance and security-focused opportunities.
+
+      </p>
+
+
+      <div class="contact-actions">
+
+
+        <a
+          class="btn primary"
+          href="mailto:anuragkarn56@gmail.com"
+        >
+          anuragkarn56@gmail.com ↗
+        </a>
+
+
+        <a
+          class="btn ghost"
+          href="https://github.com/Anurag666-bot"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+
+
+        <a
+          class="btn ghost"
+          href="https://bugcrowd.com/h/Anurag_1225"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Bugcrowd ↗
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
 </main>
 
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
-  <span>anurag kumar das · © 2025</span>
-  <span>built with HTML · CSS · JavaScript</span>
-  <a href="#top">back to top ↑</a>
+
+  <span>
+
+    anurag kumar das · ©
+    <span id="year"></span>
+
+  </span>
+
+
+  <span>
+
+    built with HTML · CSS · JavaScript
+
+  </span>
+
+
+  <a href="#top">
+
+    back to top ↑
+
+  </a>
+
 </footer>
 
+
+
 <script>
-const roles=["Full-Stack Developer","Security Researcher","Frontend Developer","Bug Bounty Hunter","BCA Student @ Patan Campus"];
-let role=0,pos=0,deleteMode=false;
-const typed=document.getElementById("typed");
+
+"use strict";
+
+
+/* =========================================================
+   TYPING ANIMATION
+========================================================= */
+
+const roles = [
+
+  "Full-Stack Developer",
+  "Software Developer",
+  "Security Researcher",
+  "Frontend Developer",
+  "Bug Bounty Hunter",
+  "BCA Student @ Patan Campus"
+
+];
+
+const typed =
+  document.getElementById("typed");
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const prefersReducedMotion =
+  window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+
 function typeLoop(){
-  const word=roles[role];
-  if(!deleteMode){typed.textContent=word.slice(0,++pos);if(pos===word.length){deleteMode=true;setTimeout(typeLoop,1500);return}}
-  else{typed.textContent=word.slice(0,--pos);if(pos===0){deleteMode=false;role=(role+1)%roles.length}}
-  setTimeout(typeLoop,deleteMode?35:65)
+
+  if(
+    !typed ||
+    prefersReducedMotion
+  ){
+
+    if(typed){
+
+      typed.textContent =
+        roles[0];
+
+    }
+
+    return;
+
+  }
+
+
+  const currentRole =
+    roles[roleIndex];
+
+
+  if(!deleting){
+
+    charIndex++;
+
+
+    typed.textContent =
+      currentRole.slice(
+        0,
+        charIndex
+      );
+
+
+    if(
+      charIndex >=
+      currentRole.length
+    ){
+
+      deleting = true;
+
+      setTimeout(
+        typeLoop,
+        1500
+      );
+
+      return;
+
+    }
+
+  }else{
+
+    charIndex--;
+
+
+    typed.textContent =
+      currentRole.slice(
+        0,
+        charIndex
+      );
+
+
+    if(charIndex <= 0){
+
+      charIndex = 0;
+
+      deleting = false;
+
+      roleIndex =
+        (roleIndex + 1) %
+        roles.length;
+
+    }
+
+  }
+
+
+  setTimeout(
+    typeLoop,
+    deleting
+      ? 35
+      : 65
+  );
+
 }
-setTimeout(typeLoop,500);
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("show");observer.unobserve(entry.target)}})
-},{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-const buttons=document.querySelectorAll(".filter"),cards=document.querySelectorAll(".project");
-buttons.forEach(button=>{
-  button.addEventListener("click",()=>{
-    buttons.forEach(b=>b.classList.remove("active"));button.classList.add("active");
-    const filter=button.dataset.filter;
-    cards.forEach(card=>card.classList.toggle("hidden",filter!=="all"&&card.dataset.cat!==filter));
-  });
-});
+setTimeout(
+  typeLoop,
+  500
+);
 
-const nav=document.getElementById("nav");
-document.getElementById("menu").addEventListener("click",()=>nav.classList.toggle("open"));
-document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+  document.querySelectorAll(
+    ".reveal"
+  );
+
+
+if(
+  prefersReducedMotion ||
+  !(
+    "IntersectionObserver"
+    in window
+  )
+){
+
+  revealElements.forEach(
+    element => {
+
+      element.classList.add(
+        "show"
+      );
+
+    }
+  );
+
+}else{
+
+  const observer =
+    new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(
+          entry => {
+
+            if(
+              entry.isIntersecting
+            ){
+
+              entry.target.classList.add(
+                "show"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          }
+        );
+
+      },
+
+      {
+        threshold:.12
+      }
+
+    );
+
+
+  revealElements.forEach(
+    element => {
+
+      observer.observe(
+        element
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   PROJECT FILTER
+========================================================= */
+
+const filterButtons =
+  document.querySelectorAll(
+    ".filter"
+  );
+
+const projectCards =
+  document.querySelectorAll(
+    ".project"
+  );
+
+
+filterButtons.forEach(
+  button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+
+        filterButtons.forEach(
+          item => {
+
+            item.classList.remove(
+              "active"
+            );
+
+            item.setAttribute(
+              "aria-pressed",
+              "false"
+            );
+
+          }
+        );
+
+
+        button.classList.add(
+          "active"
+        );
+
+
+        button.setAttribute(
+          "aria-pressed",
+          "true"
+        );
+
+
+        const filter =
+          button.dataset.filter;
+
+
+        projectCards.forEach(
+          card => {
+
+            const category =
+              card.dataset.cat;
+
+
+            const shouldShow =
+              filter === "all" ||
+              category === filter;
+
+
+            card.classList.toggle(
+              "hidden",
+              !shouldShow
+            );
+
+          }
+        );
+
+      }
+    );
+
+  }
+);
+
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const nav =
+  document.getElementById(
+    "nav"
+  );
+
+const menu =
+  document.getElementById(
+    "menu"
+  );
+
+
+if(menu && nav){
+
+  menu.addEventListener(
+    "click",
+    () => {
+
+
+      const isOpen =
+        nav.classList.toggle(
+          "open"
+        );
+
+
+      menu.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+
+      menu.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation"
+          : "Open navigation"
+      );
+
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   CLOSE MOBILE NAV
+========================================================= */
+
+document
+  .querySelectorAll(
+    ".navlinks a"
+  )
+  .forEach(
+    link => {
+
+
+      link.addEventListener(
+        "click",
+        () => {
+
+
+          if(
+            !nav ||
+            !menu
+          ){
+
+            return;
+
+          }
+
+
+          nav.classList.remove(
+            "open"
+          );
+
+
+          menu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+
+          menu.setAttribute(
+            "aria-label",
+            "Open navigation"
+          );
+
+
+        }
+      );
+
+    }
+  );
+
+
+
+/* =========================================================
+   ESC KEY CLOSES MOBILE NAV
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+
+    if(
+      event.key === "Escape" &&
+      nav &&
+      menu
+    ){
+
+      nav.classList.remove(
+        "open"
+      );
+
+
+      menu.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+
+      menu.setAttribute(
+        "aria-label",
+        "Open navigation"
+      );
+
+    }
+
+  }
+);
+
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+const year =
+  document.getElementById(
+    "year"
+  );
+
+
+if(year){
+
+  year.textContent =
+    new Date()
+      .getFullYear();
+
+}
+
+
+
+/* =========================================================
+   EXTERNAL LINK SAFETY
+========================================================= */
+
+document
+  .querySelectorAll(
+    'a[target="_blank"]'
+  )
+  .forEach(
+    link => {
+
+      link.setAttribute(
+        "rel",
+        "noopener noreferrer"
+      );
+
+    }
+  );
+
 </script>
+
+
 </body>
 </html>
+```
